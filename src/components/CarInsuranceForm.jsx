@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import TextInput from "./TextInput";
 import DropDown from "./DropDown";
+import { withRouter } from "react-router-dom";
 
 const initialValues = {
   regNr: "",
@@ -39,7 +40,10 @@ const CarInsuranceForm = () => {
     event.preventDefault();
     if (isValid) {
       console.log("Valid Submit");
-      history.push("/pricingOptions");
+      history.push({
+        pathname: "/pricingOptions",
+        state: { values: values },
+      });
     } else {
       console.log("Invalid submit");
     }
@@ -168,4 +172,4 @@ const CarInsuranceForm = () => {
   );
 };
 
-export default CarInsuranceForm;
+export default withRouter(CarInsuranceForm);

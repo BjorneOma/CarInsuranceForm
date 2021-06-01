@@ -76,34 +76,6 @@ body {
   display: flex;
   flex-direction: row;
 }
-
-@media only screen and (max-width: 600px) {
-  .wrapper {
-    max-width: 90vw;
-    margin-top: 50px;
-  }
-
-  .formItem {
-    flex-direction: column;
-  }
-
-  .row.onlyDesktop {
-    flex-direction: column;
-  }
-
-  .row {
-    justify-content: center;
-  }
-
-  .formInput {
-    width: 90vw;
-  }
-
-  .formDropDown {
-    width: 90vw;
-  }
-}
-
 .carInsuranceForm {
   display: flex;
   flex-direction: column;
@@ -139,7 +111,7 @@ body {
   margin: auto;
 }
 
-.insuranceOption {
+.pricingOption {
   border: solid black 1.5px;
   padding: 10px 20px 10px 20px;
   margin: auto;
@@ -153,22 +125,73 @@ body {
   font-size: 14px;
 }
 
-h2 {
+.pricingOptionName {
   margin: 0 0 0 0;
   font-weight: 600;
   font-size: 32px;
 }
 
-.insuranceOption h1 {
+.pricingOptionPrice {
   margin-bottom: 0;
 }
 
-.insuranceOption h1 span {
+.pricingOptionPriceSmall {
   font-size: 20px;
   align-self: flex-end;
 }
 
-.insuranceOptionDescription {
+.pricingOptionDescription {
   max-width: 300px;
   margin: auto;
+}
+
+@media only screen and (max-width: 600px) {
+  .wrapper {
+    max-width: 90vw;
+    margin-top: 50px;
+  }
+
+  .formItem {
+    flex-direction: column;
+  }
+
+  .row.onlyDesktop {
+    flex-direction: column;
+  }
+
+  .row {
+    justify-content: center;
+  }
+
+  .formInput,
+  .formDropDown {
+    width: 90vw;
+  }
+
+  .pricingOption {
+    flex-direction: column;
+  }
+
+  .pricingOptionName {
+    font-size: 24px;
+  }
+
+  .pricingOptionPrice {
+    font-size: 24px;
+  }
+
+  .pricingOptionPriceSmall {
+    font-size: 10px;
+  }
+
+  .pricingOptionDescription {
+    font-size: 12px;
+  }
+
+  .pricingOptionRight {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+  }
 }

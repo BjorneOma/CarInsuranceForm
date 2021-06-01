@@ -1,6 +1,8 @@
+//lag insuranceoption klasse
+
 const PricingOptions = () => {
   return (
-    <div className="pricingOptions">
+    <div className="wrapper">
       <h1>Kjøp Bilforsikring</h1>
       <div className="insuranceOption">
         <div>

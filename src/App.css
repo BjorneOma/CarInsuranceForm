@@ -4,22 +4,27 @@
     url(./fonts/Profilfont-Regular-Web.woff) format("woff");
 }
 
+* {
+  box-sizing: border-box;
+  font-family: Profilfont-Regular-Web;
+}
+
 body {
-  max-width: 800px;
+  font-family: Profilfont-Regular-Web;
+}
+
+.wrapper {
+  max-width: 600px;
   margin: auto;
   margin-top: 100px;
 }
 
-* {
-  font-family: Profilfont-Regular-Web;
-}
-
-h1 {
+.title {
   font-size: 40px;
   font-weight: 400;
 }
 
-form {
+.carInsuranceForm {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -28,12 +33,43 @@ form {
 .formItem {
   display: flex;
   flex-direction: column;
-  margin: 10px;
+  margin: 10px 10px 10px 0px;
 }
 
-.errorMessage {
+.formInput {
+  border: solid black 1px;
+  border-radius: 2px;
+  width: 180px;
+  padding: 5px;
+  margin-top: 5px;
+}
+
+.formInputRed {
+  border: solid red 1px;
+  border-radius: 2px;
+  width: 180px;
+  padding: 5px;
+  margin-top: 5px;
+}
+
+.errorMessageHidden {
+  margin-top: 8px;
+  margin-bottom: 12px;
+}
+
+.errorMessageShown {
   font-size: 12px;
   color: red;
+  margin-top: 8px;
+}
+
+.formDropDown {
+  border: solid black 1px;
+  border-radius: 2px;
+  width: 180px;
+  padding: 5px;
+  margin-top: 5px;
+  margin-bottom: 20px;
 }
 
 .row {
@@ -42,29 +78,30 @@ form {
 }
 
 @media only screen and (max-width: 600px) {
-  body {
-    margin: 5px;
+  .wrapper {
+    max-width: 90vw;
+    margin-top: 50px;
+  }
+
+  .formItem {
+    flex-direction: column;
   }
 
   .row.onlyDesktop {
-    display: flex;
     flex-direction: column;
   }
-}
 
-input {
-  border: solid black 1px;
-  border-radius: 2px;
-  width: 180px;
-  padding: 5px;
-  margin-top: 5px;
-}
+  .row {
+    justify-content: center;
+  }
 
-select {
-  width: 180px;
-  border-radius: 2px;
-  width: 180px;
-  padding: 5px;
+  .formInput {
+    width: 90vw;
+  }
+
+  .formDropDown {
+    width: 90vw;
+  }
 }
 
 .carInsuranceForm {
@@ -72,24 +109,28 @@ select {
   flex-direction: column;
 }
 
-button {
+.blackButton {
   font-weight: 600;
   font-size: 14px;
   padding: 8px 20px 8px 20px;
   border-radius: 26px;
-  margin: 10px;
+  margin-right: 20px;
   cursor: pointer;
-  border: solid black 1.5px;
-}
-
-.blackButton {
   color: white;
+  margin-bottom: 50px;
   background-color: black;
   border: none;
 }
 
 .whiteButton {
+  font-weight: 600;
+  font-size: 14px;
+  padding: 8px 20px 8px 20px;
+  border-radius: 26px;
+  margin-right: 20px;
+  cursor: pointer;
   border: solid 1px black;
+  margin-bottom: 50px;
   background-color: white;
 }
 

@@ -1,8 +1,37 @@
+import { useState } from "react";
 import PricingOption from "./PricingOption";
 import { withRouter } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
-const PricingOptions = () => {
-  //console.log(props.location.state.values);
+const PricingOptions = (props) => {
+  const history = useHistory();
+  const [prices, setPrices] = useState({
+    price1: "Laster pris",
+    price2: "Laster pris",
+    price3: "Laster pris",
+    price4: "Laster pris",
+  });
+  let newPrices = [];
+
+  function fetchPrices() {
+    return new Promise(function (resolve, reject) {
+      newPrices = mockAPI(props.history.location.state.values);
+      setTimeout(resolve, 2000);
+    }).then(function () {
+      setPrices({
+        price1: newPrices[0],
+        price2: newPrices[1],
+        price3: newPrices[2],
+        price4: newPrices[3],
+      });
+    });
+  }
+
+  function mockAPI(props) {
+    return ["1945", "1430", "647", "250"];
+  }
+
+  fetchPrices();
 
   return (
     <div className="wrapper">
@@ -11,13 +40,13 @@ const PricingOptions = () => {
         name="Bil Pluss"
         description="Full forsikring som gir deg ny bil ved totalskade og dekker leiebil
             uansett type skade."
-        price="1945"
+        price={prices.price1}
       />
       <PricingOption
         name="Bil Kasko"
         description="En forsikring som passer for de fleste. Forsikringen dekker de
         fleste skader på din egen bil og har 8 års garanti på reperasjoner."
-        price="1630"
+        price={prices.price2}
       />
       <PricingOption
         name="Bil Delkasko"
@@ -25,14 +54,14 @@ const PricingOptions = () => {
         forsikringen gir deg alt fra Bil Ansvar og gir deg veihjelp. Den
         dekker også enkelte skader på din egen bil ved brann, tyveri og
         glasskader."
-        price="457"
+        price={prices.price3}
       />
       <PricingOption
         name="Bil Ansvar"
         description="Vår enkleste bilforsikring. Denne forsikringen inneholder den
         lovpålagte ansvars­dekningen, men dekker ingen skader på din egen
         bil."
-        price="230"
+        price={prices.price4}
       />
     </div>
   );

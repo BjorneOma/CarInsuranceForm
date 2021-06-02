@@ -54,7 +54,7 @@ body {
 
 .errorMessageHidden {
   margin-top: 8px;
-  margin-bottom: 12px;
+  margin-bottom: 16.5px;
 }
 
 .errorMessageShown {
@@ -145,6 +145,16 @@ body {
   margin: auto;
 }
 
+.pricingOptionRight {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.choosePricingOptionButton {
+  margin: 0px 0px 0px 20px;
+}
+
 @media only screen and (max-width: 600px) {
   .wrapper {
     max-width: 90vw;
@@ -161,6 +171,7 @@ body {
 
   .row {
     justify-content: center;
+    width: 100%;
   }
 
   .formInput,
@@ -189,9 +200,11 @@ body {
   }
 
   .pricingOptionRight {
-    display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: flex-end;
+    align-items: flex-end;
+  }
+
+  .choosePricingOptionButton {
+    margin: 0px 0px 0px 20px;
   }
 }

@@ -1,5 +1,3 @@
-import PricingOptions from "./PricingOptions";
-
 const TextInput = (props) => {
   return (
     <div className="formItem">

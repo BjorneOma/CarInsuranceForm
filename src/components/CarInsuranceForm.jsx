@@ -23,24 +23,22 @@ const initialErrors = {
 
 let tempErrors = JSON.parse(JSON.stringify(initialErrors));
 
-const CarInsuranceForm = () => {
+const CarInsuranceForm = (props) => {
   const [values, setValues] = useState(initialValues);
   const [errors, setErrors] = useState(initialErrors);
   const history = useHistory();
 
   const handleChange = (event) => {
-    setValues(
-      { ...values, [event.target.name]: event.target.value },
-      tempErrors[event.target.name] !== "" ? validate() : null
-    ); //BUG: blur validation happens the input AFTER the input has been corrected
+    setValues({ ...values, [event.target.name]: event.target.value });
+    setErrors({ ...errors, [event.target.name]: "" });
   };
 
   const handleSubmit = (event) => {
-    const isValid = validate();
     event.preventDefault();
+    const isValid = validate();
     if (isValid) {
       console.log("Valid Submit");
-      history.push({
+      props.history.push({
         pathname: "/pricingOptions",
         state: { values: values },
       });

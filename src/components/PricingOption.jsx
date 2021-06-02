@@ -7,9 +7,12 @@ const PricingOption = (props) => {
       </div>
       <div className="pricingOptionRight">
         <h1 className="pricingOptionPrice">
-          {props.price} <span className="pricingOptionPriceSmall">kr/mnd</span>
+          {props.price}{" "}
+          <span className="pricingOptionPriceSmall">
+            {props.price === "Laster pris" ? "" : "kr/mnd"}
+          </span>
         </h1>
-        <button className="blackButton">Velg</button>
+        <button className="blackButton choosePricingOptionButton">Velg</button>
       </div>
     </div>
   );
